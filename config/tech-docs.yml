@@ -6,7 +6,7 @@ host: https://ministryofjustice.github.io/laa-cis-phoenix-tech-docs
 # Header-related options
 show_govuk_logo: true
 service_name: LAA CIS Phoenix Documentation Site
-service_link: ""
+service_link: /
 
 # Links to show on right-hand-side of header
 header_links:
