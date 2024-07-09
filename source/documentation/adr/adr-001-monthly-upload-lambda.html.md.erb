@@ -1,0 +1,33 @@
+---
+title: Monthly Upload Lambda
+category: adr
+reference: ADR-001
+status: Accepted
+statusicon: ♻️
+date: 2024-05-23
+statuses:
+    -   🤔 Proposed
+    -   ✅ Accepted
+    -   ❌ Rejected
+    -   ♻️ Amended
+    -   ⌛️ Superseded
+---
+
+# <%= current_page.data.reference %> - <%= current_page.data.title %>
+
+Date: <%= current_page.data.date %>
+
+## Status
+
+<%= current_page.data.statusicon %> <%= current_page.data.status %>
+
+## Context
+CCMS payment load is done once a month and currently the CIS team runs the monthly load on AWS Workspace which connects and injects the data into CIS, that transfer to CCMS through Hub. For sunsetting CIS an API was built to send directly to CCMS however during testing the team was not able to obtain a CCMS production user to perform the injection of data.
+
+## Decision
+
+Decision was made to use AWS lambda, so it sits under App Ops control, without the risk of creating of production access user. This is a perfect use of lambda as it will only run once a month when required for monthly upload.
+
+## Consequences
+
+Therefore it is not required to run an API at all time and the use of Cloud resources are optimised for cost and carbon footprint. Other advantages are automatic provisioning of resources and maintenance by another team. Drawbacks are mostly testing.
